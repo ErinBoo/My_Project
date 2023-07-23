@@ -9,6 +9,7 @@
 
 Jetson Nano was used to create this project and so was the retrained resnet18 model. A variety of fruits and veggies make up the dataset I used for this project. The plants are labeled by the type of plant, and if it has a disease, the type of disease. When it runs, it utilizes the imagenet.py tool and the model to identify the plant in the input image and decide whether or not it has a disease. 
 
+<img width="616" alt="Screen Shot 2023-07-23 at 2 37 59 PM" src="https://github.com/ErinBoo/My_Project/assets/140011304/94dc6fab-395e-421b-a930-c98852490d1e">
 
 
 ## Running this project
