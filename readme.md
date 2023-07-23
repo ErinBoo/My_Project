@@ -14,7 +14,30 @@ Jetson Nano was used to create this project and so was the retrained resnet18 mo
 
 ## Running this project
 
-1. 
-2. Make sure to include any required libraries that need to be installed for your project to run.
+**Training**
+1. Make sure you have resnet-18 already downloaded onto your jetson.
+2. All of the files in the GitHub should be downloaded onto the jetson, including all Python scripts that will be used.
+3. On Kaggle find the data set called PlantVillage and download it
+4. Then go to VS Code and change directories into jetson-inference/python/training/classification/data
+5. unzip the file, by running "wget (the link you got from downloading) -O PlantVillage.tar.gz"
+6. Then after you've done that go to the jetson-inference folder and run: ./docker/run.sh
+7. Go back to jetson-inference/python/training/classification
+8. To train the data, run the following: python3 train.py --model-dir=models/PlantVillage data/PlantVillage
+9. Allow the resnet-18 model to train for at least 10 epochs, but the more training that is done, the better.
+10. Make sure the data set is in VS Code in Nvidia/jetson-inference/python/training/classification/data
+
+**Exporting the Model**
+1. Make sure you are in the docker container and in jetson-inference/python/training/classification
+2. Then run: python3 onnx_export.py --model-dir=models/PlantVillage
+
+**Processing Images**
+1. Exit the docker container by pressing Ctrl + D.
+2. Then make sure you're still in jetson-inference/python/training/classification
+3. Use ls models/PlantVillage to make sure that the model is on the nano. You should see a file called resnet18.onnx.
+4. Then Set the NET and DATASET variables using these codes:
+   - NET=models/cat_dog
+   - DATASET=data/cat_dog
+5. Then run: imagenet.py --model=models/PlantVillage/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=models/PlantVillage/labels.txt data/PlantVillage/Test/(Name of a Folder in your Test Folder)/(Name of picture in that folder).JPG (Any name you want for the picture).jpg
+6. After that you should be able to find a picture in your models folder named after what you chose
 
 [View a video explanation here](video link)
