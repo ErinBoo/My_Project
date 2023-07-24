@@ -40,4 +40,4 @@ Jetson Nano was used to create this project and so was the retrained resnet18 mo
 5. Then run: imagenet.py --model=models/PlantVillage/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=models/PlantVillage/labels.txt data/PlantVillage/Test/(Name of a Folder in your Test Folder)/(Name of picture in that folder).JPG (Any name you want for the picture).jpg
 6. After that you should be able to find a picture in your models folder named after what you chose
 
-[View a video explanation here](video link)
+https://youtu.be/fyBPpnn8cbI
